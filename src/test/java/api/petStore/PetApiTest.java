@@ -2,12 +2,8 @@ package api.petStore;
 
 import api.base.BaseTest;
 import api.client.PetClient;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class PetApiTest extends BaseTest {
@@ -60,12 +56,18 @@ public class PetApiTest extends BaseTest {
     }
 
     @Test
-    void deletePet_ShouldReturn200() {
+    void deletePetShouldReturn200() {
         petClient.deletePet(8)
                 .then()
                 .statusCode(200);
     }
 
-
+    @Test
+    public void updatePetReturn200() {
+        petClient.createPet(petObject).then().statusCode(200)
+                .body("id", equalTo(10))
+                .body("name", equalTo("doggie"))
+                .body("status", equalTo("available"));
+    }
 
 }

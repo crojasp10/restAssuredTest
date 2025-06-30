@@ -77,5 +77,4 @@ public class PetApiTest extends BaseTest {
                 .statusCode(404);
     }
 
-
 }

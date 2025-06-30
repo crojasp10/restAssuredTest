@@ -9,6 +9,7 @@ public class BaseTest {
         RestAssured.baseURI = "http://localhost:8080/api/v3/";
     }
 
+
     //Token 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
 }
 

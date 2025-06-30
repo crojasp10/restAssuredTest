@@ -70,4 +70,12 @@ public class PetApiTest extends BaseTest {
                 .body("status", equalTo("available"));
     }
 
+    @Test
+    public void getPetByIdReturns404() {
+        petClient.getPetById(11)
+                .then()
+                .statusCode(404);
+    }
+
+
 }
